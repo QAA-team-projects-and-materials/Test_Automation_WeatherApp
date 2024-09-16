@@ -1,35 +1,38 @@
 describe('Verification of Page Elements', () => {
 
-    let TEST_EMAIL = 'grudilov24@gmail.com'
-    let TEST_PASSWORD = 'test1234'
-    let testCity = 'Kyiv'
+  const user = Cypress.env("user")
+  
+  beforeEach(() => {
+   // Loading user data 
+   // const user = Cypress.env("user")
     
-    it.only('should log in with valid credentials', () => {
-      //LOG IN
-      // Navigate to the OpenWeather login page.
-      cy.visit('https://openweathermap.org')
-      cy.get('.user-li > a').click()
+  // LOG IN
+  // Navigate to the OpenWeather login page.
+    cy.visit('https://openweathermap.org')
 
-      // Enter valid credentials
-      cy.get('#user_email').type(TEST_EMAIL)       
-      cy.get('#user_password').type(TEST_PASSWORD)   
+    cy.get('.user-li > a').click()
+  // Enter credentials
+    cy.get('#user_email').type(user.email)
+    cy.get('#user_password').type(user.password)
 
-      //Submit the login form            
-      cy.get('.new_user > .btn').click()
-       
-      // Verify the presence of key elements
-      // The search bar for finding weather in different cities.
-      cy.get('#desktop-menu > form')
-      .should('be.exist')
-      .should('be.visible')
+  // Submit the login form
+    cy.get('.new_user > .btn').click()
+  })
 
-      cy.get('.logo > a > img').click();
-      cy.get('#desktop-menu > form > [name="q"]')
-      .type(`${testCity}{enter}`)
+  it('Verify the presence of key elements', () => {
+
+// The search bar for finding weather in different cities.
+  cy.get('#desktop-menu > form')
+  .should('be.exist')
+  .should('be.visible')
+
+  cy.get('.logo > a > img').click();
+  cy.get('#desktop-menu > form > [name="q"]')
+  .type(`${user.city}{enter}`)
 
       //The current weather section.
-      cy.get('.headline')
-      .should('be.exist')
+  cy.get('.headline')
+  .should('be.exist')
       .should('be.visible')
       .and('contain.text', 'Weather in your city')
 
@@ -48,6 +51,6 @@ describe('Verification of Page Elements', () => {
       cy.get('.grid-5-4 > :nth-child(1) > .mobile-padding')
       .should('be.exist')
       .should('be.visible')
-      .and('have.text', 'Hourly forecast');
-      });
-    });
+      .and('have.text', 'Hourly forecast')
+      })
+})
