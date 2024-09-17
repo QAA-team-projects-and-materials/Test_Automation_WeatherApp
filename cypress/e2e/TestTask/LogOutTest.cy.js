@@ -1,4 +1,4 @@
-describe('User Login', () => {
+describe('User LogOut', () => {
 
   beforeEach(() => {
    // Loading user data 
@@ -17,7 +17,7 @@ describe('User Login', () => {
     cy.get('.new_user > .btn').click()
   })
 
-  it('Verify the presence of key elements', () => {
+  it('LogOut test', () => {
   //LOG OUT
     cy.get('.inner-user-container').wait(5000).click()
     cy.get(':nth-child(5) > .logout').click()
