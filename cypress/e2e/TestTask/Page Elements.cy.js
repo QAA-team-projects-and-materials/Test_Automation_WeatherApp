@@ -1,3 +1,6 @@
+import selectors from '..//..//support/selectors.json';
+
+
 describe('Verification of Page Elements', () => {
 
   const user = Cypress.env("user")
@@ -10,47 +13,45 @@ describe('Verification of Page Elements', () => {
   // Navigate to the OpenWeather login page.
     cy.visit('')
 
-    cy.get('.user-li > a').click()
+    cy.get(selectors.loginPage.loginButton).click()
   // Enter credentials
-    cy.get('#user_email').type(user.email)
-    cy.get('#user_password').type(user.password)
+    cy.get(selectors.loginPage.emailInput).type(user.email)
+    cy.get(selectors.loginPage.passwordInput).type(user.password)
 
   // Submit the login form
-    cy.get('.new_user > .btn').click()
+    cy.get(selectors.loginPage.submitButton).click()
   })
 
   it('Verify the presence of key elements', () => {
 
-
   // The search bar for finding weather in different cities.
-    cy.get('#desktop-menu > form')
+    cy.get(selectors.commonElements.searchForm).wait(3000)
     .should('be.exist')
     .should('be.visible')
 
-    cy.get('.logo > a > img').click();
-    cy.get('#desktop-menu > form > [name="q"]')
+    cy.get(selectors.commonElements.logo).click();
+    cy.get(selectors.commonElements.searchInput)
     .type(`${user.city}{enter}`)
 
-
   //The current weather section.
-     cy.get('.headline')
+     cy.get(selectors.weatherPage.headline)
     .should('be.exist')
     .should('be.visible')
     .and('contain.text', 'Weather in your city')
 
-    cy.get('body > main > div:nth-child(7) > div > div')
+    cy.get(selectors.weatherPage.weatherInfo)
     .should('be.exist')
     .should('be.visible')
 
-    cy.get('tbody > :nth-child(1) > :nth-child(2) > :nth-child(1) > a')
+    cy.get(selectors.weatherPage.firstWeatherLink)
     .click()
       
   //The forecast section.
-    cy.get('#weather-widget > .section-content')
+    cy.get(selectors.weatherPage.forecastSection)
     .should('be.exist')
     .should('be.visible')
 
-    cy.get('.grid-5-4 > :nth-child(1) > .mobile-padding')
+    cy.get(selectors.weatherPage.hourlyForecastText)
     .should('be.exist')
     .should('be.visible')
     .and('have.text', 'Hourly forecast')
