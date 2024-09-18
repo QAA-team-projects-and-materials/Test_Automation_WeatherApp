@@ -2,7 +2,7 @@ describe('User Login', () => {
 
   beforeEach(() => {
   // Navigate to the OpenWeather login page.
-    cy.visit('https://openweathermap.org') })
+    cy.visit('') })
 
   it('should log in with valid credentials', () => {
   // LOG IN

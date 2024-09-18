@@ -6,7 +6,7 @@ describe('User LogOut', () => {
     
   // LOG IN TO THE SITE
   // Navigate to the OpenWeather login page.
-    cy.visit('https://openweathermap.org')
+    cy.visit('')
 
     cy.get('.user-li > a').click()
   // Enter credentials

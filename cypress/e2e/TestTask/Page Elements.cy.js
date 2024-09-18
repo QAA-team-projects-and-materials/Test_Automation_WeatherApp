@@ -8,7 +8,7 @@ describe('Verification of Page Elements', () => {
     
   // LOG IN
   // Navigate to the OpenWeather login page.
-    cy.visit('https://openweathermap.org')
+    cy.visit('')
 
     cy.get('.user-li > a').click()
   // Enter credentials
