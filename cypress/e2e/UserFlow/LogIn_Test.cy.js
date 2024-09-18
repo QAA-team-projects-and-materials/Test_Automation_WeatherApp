@@ -1,4 +1,4 @@
-import selectors from '..//..//support/selectors.json';
+import selectors from '../../support/selectors.json';
 describe('User Login', () => {
 
   beforeEach(() => {
