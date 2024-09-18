@@ -21,7 +21,7 @@ describe('Verification of Page Elements', () => {
 
   it('Verify the presence of key elements', () => {
 
-// The search bar for finding weather in different cities.
+  // The search bar for finding weather in different cities.
     cy.get('#desktop-menu > form')
     .should('be.exist')
     .should('be.visible')
@@ -30,7 +30,7 @@ describe('Verification of Page Elements', () => {
     cy.get('#desktop-menu > form > [name="q"]')
     .type(`${user.city}{enter}`)
 
-      //The current weather section.
+  //The current weather section.
      cy.get('.headline')
     .should('be.exist')
     .should('be.visible')
