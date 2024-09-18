@@ -1,0 +1,26 @@
+{
+    "loginPage": {
+      "loginButton": ".user-li > a",
+      "emailInput": "#user_email",
+      "passwordInput": "#user_password",
+      "submitButton": ".new_user > .btn"
+    },
+    "dashboardPage": {
+      "userProfileIcon": ".panel-body",
+      "logoutMenuButton": ".inner-user-container",
+      "logoutButton": ":nth-child(5) > .logout"
+    },
+    "commonElements": {
+      "searchForm": "#desktop-menu > form",
+      "searchInput": "#desktop-menu > form > [name='q']",
+      "logo": ".logo > a > img"
+    },
+    "weatherPage": {
+      "headline": ".headline",
+      "weatherInfo": "body > main > div:nth-child(7) > div > div",
+      "firstWeatherLink": "tbody > :nth-child(1) > :nth-child(2) > :nth-child(1) > a",
+      "forecastSection": "#weather-widget > .section-content",
+      "hourlyForecastText": ".grid-5-4 > :nth-child(1) > .mobile-padding"
+    }
+  }
+  
