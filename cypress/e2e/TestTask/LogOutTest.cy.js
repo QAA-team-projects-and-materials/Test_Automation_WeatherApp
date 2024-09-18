@@ -4,7 +4,7 @@ describe('User LogOut', () => {
    // Loading user data 
     const user = Cypress.env("user")
     
-  // LOG  IN
+  // LOG IN TO THE SITE
   // Navigate to the OpenWeather login page.
     cy.visit('https://openweathermap.org')
 
