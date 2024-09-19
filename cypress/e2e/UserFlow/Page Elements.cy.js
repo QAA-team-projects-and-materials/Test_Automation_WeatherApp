@@ -1,6 +1,7 @@
 import selectors from '..//../fixtures//loginPageSelectors.json'
 import forecastSelectors from '..//../fixtures/forecastSectionSelectors.json'
 
+
 describe('Verification of Page Elements', () => {
 
   const user = Cypress.env("user")
@@ -35,6 +36,7 @@ describe('Verification of Page Elements', () => {
 
   //The current weather section.
      cy.get(forecastSelectors.weatherPage.headline)
+
     .should('be.exist')
     .should('be.visible')
     .and('contain.text', 'Weather in your city')

@@ -1,4 +1,5 @@
 import selectors from '..//../fixtures//loginPageSelectors.json';
+
 describe('User Login', () => {
 
   beforeEach(() => {
@@ -23,5 +24,6 @@ describe('User Login', () => {
 
   // Assert that the user profile icon is visible
     cy.get(selectors.loginPage.userProfileIcon).should('be.visible')
+  
   })
 })
