@@ -2,7 +2,9 @@ import selectors from '..//../fixtures//loginPageSelectors.json'
 import logOutLelectors from '..//../fixtures//logOutPageSelectors.json'
 
 describe('User LogOut', () => {
-
+  // Get selectors from JSON
+  const { loginButton, emailInput, passwordInput, submitButton } = selectors.loginPage;
+  const {logoutMenuButton, logoutButton} = logOutLelectors.dashboardPage
   beforeEach(() => {
    // Loading user data 
     const user = Cypress.env("user")
@@ -11,18 +13,18 @@ describe('User LogOut', () => {
   // Navigate to the OpenWeather login page.
     cy.visit('')
 
-    cy.get(selectors.loginPage.loginButton).click()
+    cy.get(loginButton).click()
   // Enter credentials
-    cy.get(selectors.loginPage.emailInput).type(user.email)
-    cy.get(selectors.loginPage.passwordInput).type(user.password)
+    cy.get(emailInput).type(user.email)
+    cy.get(passwordInput).type(user.password)
 
   // Submit the login form
-    cy.get(selectors.loginPage.submitButton).click()
+    cy.get(submitButton).click()
   })
 
   it('LogOut test', () => {
   //LOG OUT
-    cy.get(logOutLelectors.dashboardPage.logoutMenuButton).wait(5000).click()
-    cy.get(logOutLelectors.dashboardPage.logoutButton).click()
+    cy.get(logoutMenuButton).wait(5000).click()
+    cy.get(logoutButton).click()
       })
 })

@@ -1,7 +1,9 @@
 import selectors from '..//../fixtures//loginPageSelectors.json';
 
 describe('User Login', () => {
-
+  // Get selectors from JSON
+  const { loginButton, emailInput, passwordInput, submitButton, userProfileIcon } = selectors.loginPage;
+  
   beforeEach(() => {
   // Navigate to the OpenWeather login page.
     cy.visit('') })
@@ -11,19 +13,19 @@ describe('User Login', () => {
   // Loading user data 
     const user = Cypress.env("user")
     
-    cy.get(selectors.loginPage.loginButton).click()
+    cy.get(loginButton).click()
   // Enter credentials
-    cy.get(selectors.loginPage.emailInput).type(user.email)
-    cy.get(selectors.loginPage.passwordInput).type(user.password)
+    cy.get(emailInput).type(user.email)
+    cy.get(passwordInput).type(user.password)
 
   // Submit the login form
-    cy.get(selectors.loginPage.submitButton).click()
+    cy.get(submitButton).click()
   
   // Redirecting to the homepage upon successful login
     cy.url('').should('include', '/home')
 
   // Assert that the user profile icon is visible
-    cy.get(selectors.loginPage.userProfileIcon).should('be.visible')
+    cy.get(userProfileIcon).should('be.visible')
   
   })
 })
