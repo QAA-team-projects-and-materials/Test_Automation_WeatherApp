@@ -1,4 +1,5 @@
-import selectors from '../../support/selectors.json';
+import selectors from '..//../fixtures//loginPageSelectors.json'
+import logOutLelectors from '..//../fixtures//logOutPageSelectors.json'
 
 describe('User LogOut', () => {
 
@@ -21,7 +22,7 @@ describe('User LogOut', () => {
 
   it('LogOut test', () => {
   //LOG OUT
-    cy.get(selectors.dashboardPage.logoutMenuButton).wait(5000).click()
-    cy.get(selectors.dashboardPage.logoutButton).click()
+    cy.get(logOutLelectors.dashboardPage.logoutMenuButton).wait(5000).click()
+    cy.get(logOutLelectors.dashboardPage.logoutButton).click()
       })
 })

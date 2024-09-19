@@ -1,0 +1,14 @@
+{
+"commonElements": {
+    "searchForm": "#desktop-menu > form",
+    "searchInput": "#desktop-menu > form > [name='q']",
+    "logo": ".logo > a > img"
+  },
+  "weatherPage": {
+    "headline": ".headline",
+    "weatherInfo": "body > main > div:nth-child(7) > div > div",
+    "firstWeatherLink": "tbody > :nth-child(1) > :nth-child(2) > :nth-child(1) > a",
+    "forecastSection": "#weather-widget > .section-content",
+    "hourlyForecastText": ".grid-5-4 > :nth-child(1) > .mobile-padding"
+  }
+}

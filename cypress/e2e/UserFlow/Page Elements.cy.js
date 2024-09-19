@@ -1,5 +1,5 @@
-import selectors from '../../support/selectors.json';
-
+import selectors from '..//../fixtures//loginPageSelectors.json'
+import forecastSelectors from '..//../fixtures/forecastSectionSelectors.json'
 
 describe('Verification of Page Elements', () => {
 
@@ -25,33 +25,33 @@ describe('Verification of Page Elements', () => {
   it('Verify the presence of key elements', () => {
 
   // The search bar for finding weather in different cities.
-    cy.get(selectors.commonElements.searchForm).wait(3000)
+    cy.get(forecastSelectors.commonElements.searchForm).wait(3000)
     .should('be.exist')
     .should('be.visible')
 
-    cy.get(selectors.commonElements.logo).click();
-    cy.get(selectors.commonElements.searchInput)
+    cy.get(forecastSelectors.commonElements.logo).click();
+    cy.get(forecastSelectors.commonElements.searchInput)
     .type(`${user.city}{enter}`)
 
   //The current weather section.
-     cy.get(selectors.weatherPage.headline)
+     cy.get(forecastSelectors.weatherPage.headline)
     .should('be.exist')
     .should('be.visible')
     .and('contain.text', 'Weather in your city')
 
-    cy.get(selectors.weatherPage.weatherInfo)
+    cy.get(forecastSelectors.weatherPage.weatherInfo)
     .should('be.exist')
     .should('be.visible')
 
-    cy.get(selectors.weatherPage.firstWeatherLink)
+    cy.get(forecastSelectors.weatherPage.firstWeatherLink)
     .click()
       
   //The forecast section.
-    cy.get(selectors.weatherPage.forecastSection)
+    cy.get(forecastSelectors.weatherPage.forecastSection)
     .should('be.exist')
     .should('be.visible')
 
-    cy.get(selectors.weatherPage.hourlyForecastText)
+    cy.get(forecastSelectors.weatherPage.hourlyForecastText)
     .should('be.exist')
     .should('be.visible')
     .and('have.text', 'Hourly forecast')

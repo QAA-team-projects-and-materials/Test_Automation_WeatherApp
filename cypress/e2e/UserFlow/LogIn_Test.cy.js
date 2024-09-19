@@ -1,4 +1,4 @@
-import selectors from '../../support/selectors.json';
+import selectors from '..//../fixtures//loginPageSelectors.json';
 describe('User Login', () => {
 
   beforeEach(() => {
@@ -22,6 +22,6 @@ describe('User Login', () => {
     cy.url('').should('include', '/home')
 
   // Assert that the user profile icon is visible
-    cy.get(selectors.dashboardPage.userProfileIcon).should('be.visible')
+    cy.get(selectors.loginPage.userProfileIcon).should('be.visible')
   })
 })
