@@ -1,0 +1,7 @@
+{
+      "loginButton": ".user-li > a",
+      "emailInput": "#user_email",
+      "passwordInput": "#user_password",
+      "submitButton": ".new_user > .btn",
+      "userProfileIcon": ".panel-body"
+}

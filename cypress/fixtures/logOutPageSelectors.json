@@ -1,0 +1,5 @@
+{
+    "userProfileIcon": ".panel-body",
+    "logoutMenuButton": ".inner-user-container",
+    "logoutButton": ":nth-child(5) > .logout"
+}

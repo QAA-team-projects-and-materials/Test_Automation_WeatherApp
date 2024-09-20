@@ -1,57 +1,57 @@
-import selectors from '../../support/selectors.json';
+import logInSelectors from '../../fixtures/loginPageSelectors.json'
+import forecastSectionSelector from '../../fixtures//forecastSectionSelectors.json'
 
 
 describe('Verification of Page Elements', () => {
-
+  
+  // Loading user data 
   const user = Cypress.env("user")
   
   beforeEach(() => {
-   // Loading user data 
-    const user = Cypress.env("user")
-    
   // LOG IN
   // Navigate to the OpenWeather login page.
     cy.visit('')
 
-    cy.get(selectors.loginPage.loginButton).click()
+    cy.get(logInSelectors.loginButton).click()
   // Enter credentials
-    cy.get(selectors.loginPage.emailInput).type(user.email)
-    cy.get(selectors.loginPage.passwordInput).type(user.password)
+    cy.get(logInSelectors.emailInput).type(user.email)
+    cy.get(logInSelectors.passwordInput).type(user.password)
 
   // Submit the login form
-    cy.get(selectors.loginPage.submitButton).click()
+    cy.get(logInSelectors.submitButton).click()
   })
 
   it('Verify the presence of key elements', () => {
 
   // The search bar for finding weather in different cities.
-    cy.get(selectors.commonElements.searchForm).wait(3000)
+    cy.get('#desktop-menu > form').wait(3000)
     .should('be.exist')
     .should('be.visible')
 
-    cy.get(selectors.commonElements.logo).click();
-    cy.get(selectors.commonElements.searchInput)
+    cy.get('.logo > a > img').click();
+    cy.get("#desktop-menu > form > [name='q']")
     .type(`${user.city}{enter}`)
 
   //The current weather section.
-     cy.get(selectors.weatherPage.headline)
+     cy.get(forecastSectionSelector.headline)
+
     .should('be.exist')
     .should('be.visible')
     .and('contain.text', 'Weather in your city')
 
-    cy.get(selectors.weatherPage.weatherInfo)
+    cy.get(forecastSectionSelector.weatherInfo)
     .should('be.exist')
     .should('be.visible')
 
-    cy.get(selectors.weatherPage.firstWeatherLink)
+    cy.get(forecastSectionSelector.firstWeatherLink)
     .click()
       
   //The forecast section.
-    cy.get(selectors.weatherPage.forecastSection)
+    cy.get(forecastSectionSelector.forecastSection)
     .should('be.exist')
     .should('be.visible')
 
-    cy.get(selectors.weatherPage.hourlyForecastText)
+    cy.get(forecastSectionSelector.hourlyForecastText)
     .should('be.exist')
     .should('be.visible')
     .and('have.text', 'Hourly forecast')

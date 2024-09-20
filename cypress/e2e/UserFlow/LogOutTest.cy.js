@@ -1,4 +1,5 @@
-import selectors from '../../support/selectors.json';
+import logInSelectors from '..//../fixtures//loginPageSelectors.json'
+import logOutLelectors from '..//../fixtures//logOutPageSelectors.json'
 
 describe('User LogOut', () => {
 
@@ -10,18 +11,18 @@ describe('User LogOut', () => {
   // Navigate to the OpenWeather login page.
     cy.visit('')
 
-    cy.get(selectors.loginPage.loginButton).click()
+    cy.get(logInSelectors.loginButton).click()
   // Enter credentials
-    cy.get(selectors.loginPage.emailInput).type(user.email)
-    cy.get(selectors.loginPage.passwordInput).type(user.password)
+    cy.get(logInSelectors.emailInput).type(user.email)
+    cy.get(logInSelectors.passwordInput).type(user.password)
 
   // Submit the login form
-    cy.get(selectors.loginPage.submitButton).click()
+    cy.get(logInSelectors.submitButton).click()
   })
 
   it('LogOut test', () => {
   //LOG OUT
-    cy.get(selectors.dashboardPage.logoutMenuButton).wait(5000).click()
-    cy.get(selectors.dashboardPage.logoutButton).click()
+    cy.get(logOutLelectors.logoutMenuButton).wait(5000).click()
+    cy.get(logOutLelectors.logoutButton).click()
       })
 })
