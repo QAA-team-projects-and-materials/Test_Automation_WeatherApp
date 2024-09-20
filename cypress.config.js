@@ -8,3 +8,4 @@ module.exports = defineConfig({
     baseUrl: 'https://openweathermap.org'
   },
 })
+
