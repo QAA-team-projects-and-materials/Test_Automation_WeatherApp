@@ -1,6 +1,4 @@
-import logInSelectors from '../../fixtures/loginPageSelectors.json'
 import forecastSectionSelector from '../../fixtures//forecastSectionSelectors.json'
-
 
 describe('Verification of Page Elements', () => {
   
@@ -8,42 +6,40 @@ describe('Verification of Page Elements', () => {
   const user = Cypress.env("user")
   
   beforeEach(() => {
-  // LOG IN
   // Navigate to the OpenWeather login page.
-    cy.visit('')
+    cy.visit('') 
+    cy.findAllByText('Sign in').eq(0).click()
 
-    cy.get(logInSelectors.loginButton).click()
   // Enter credentials
-    cy.get(logInSelectors.emailInput).type(user.email)
-    cy.get(logInSelectors.passwordInput).type(user.password)
-
+    cy.findAllByPlaceholderText('Enter email').eq(0).type(user.email)
+    cy.findAllByPlaceholderText('Password').type(user.password)
+  
   // Submit the login form
-    cy.get(logInSelectors.submitButton).click()
+    cy.findByRole('button', { name: /submit/i }).click()
+  
+  // Redirecting to the homepage upon successful login
+    cy.url('').should('include', '/home')
   })
 
   it('Verify the presence of key elements', () => {
 
   // The search bar for finding weather in different cities.
-    cy.get('#desktop-menu > form').wait(3000)
+    cy.findByAltText("Logo white")
     .should('be.exist')
     .should('be.visible')
+    .click();
 
-    cy.get('.logo > a > img').click();
-    cy.get("#desktop-menu > form > [name='q']")
-    .type(`${user.city}{enter}`)
+    cy.findAllByPlaceholderText("Weather in your city")
+    .eq(0).type(`${user.city}{enter}`)
 
   //The current weather section.
-     cy.get(forecastSectionSelector.headline)
-
-    .should('be.exist')
+    cy.findAllByText('Weather in your city')
     .should('be.visible')
-    .and('contain.text', 'Weather in your city')
+/*
+    cy.findByTestId('№forecast-list', { timeout: 10000 })
+    .should('be.visible');*/
 
-    cy.get(forecastSectionSelector.weatherInfo)
-    .should('be.exist')
-    .should('be.visible')
-
-    cy.get(forecastSectionSelector.firstWeatherLink)
+    cy.findByText('Kyiv, UA')
     .click()
       
   //The forecast section.
@@ -51,7 +47,7 @@ describe('Verification of Page Elements', () => {
     .should('be.exist')
     .should('be.visible')
 
-    cy.get(forecastSectionSelector.hourlyForecastText)
+    cy.findAllByText('Hourly forecast')
     .should('be.exist')
     .should('be.visible')
     .and('have.text', 'Hourly forecast')

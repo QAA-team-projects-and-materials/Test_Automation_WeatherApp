@@ -1,5 +1,3 @@
-import logInSelectors from '../../fixtures/loginPageSelectors.json';
-
 describe('User Login', () => {
   
   beforeEach(() => {

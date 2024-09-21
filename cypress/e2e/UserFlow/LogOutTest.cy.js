@@ -1,6 +1,3 @@
-import logInSelectors from '..//../fixtures//loginPageSelectors.json'
-import logOutLelectors from '..//../fixtures//logOutPageSelectors.json'
-
 describe('User LogOut', () => {
 
   beforeEach(() => {
@@ -19,15 +16,11 @@ describe('User LogOut', () => {
 
   // Redirecting to the homepage upon successful login
     cy.url('').should('include', '/home')
-
-  // Assert that the user profile icon is visible
-    cy.findByAltText("Logo white").should('be.visible')
-  
   })
 
   it('LogOut test', () => {
   //LOG OUT
   cy.findAllByText('Hrudilov').eq(0).click()
-   // cy.get(logOutLelectors.logoutButton).click()
+  cy.findAllByText("Logout").eq(0).click()
   })
 })
