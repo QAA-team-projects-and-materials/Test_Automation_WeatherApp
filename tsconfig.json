@@ -2,11 +2,11 @@
   "compilerOptions": {
     "target": "ES6",
     "lib": ["es6", "dom"],
-    "types": ["node", "mocha", "Cypress", "@testing-library/cypress" ],
+    "types": ["node"],
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true
   },
-  "include": ["**/*.ts"]
-,
+  "exclude": ["node_modules", "cypress", "cypress.config.ts"],
+  "include": ["src/*", "src/custom.d.ts", "**/*"]
 }
