@@ -33,9 +33,6 @@ describe('Verification of Page Elements', () => {
   //The current weather section.
     cy.findAllByText('Weather in your city')
     .should('be.visible')
-/*
-    cy.findByTestId('№forecast-list', { timeout: 10000 })
-    .should('be.visible');*/
 
     cy.findByText('Kyiv, UA')
     .click()
