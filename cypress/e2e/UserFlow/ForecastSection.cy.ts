@@ -1,5 +1,3 @@
-import forecastSectionSelector from '../../fixtures//forecastSectionSelectors.json'
-
 describe('Verification of Page Elements', () => {
   
   // Loading user data 
@@ -43,7 +41,7 @@ describe('Verification of Page Elements', () => {
     .click()
       
   //The forecast section.
-    cy.get(forecastSectionSelector.forecastSection)
+    cy.get('#weather-widget > .section-content')
     .should('be.exist')
     .should('be.visible')
 
