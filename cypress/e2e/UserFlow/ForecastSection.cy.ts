@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 describe('Verification of Page Elements', () => {
   
   // Loading user data 
@@ -16,7 +18,7 @@ describe('Verification of Page Elements', () => {
     cy.findByRole('button', { name: /submit/i }).click()
   
   // Redirecting to the homepage upon successful login
-    cy.url('').should('include', '/home')
+    cy.url().should('include', '/home')
   })
 
   it('Verify the presence of key elements', () => {
@@ -48,3 +50,4 @@ describe('Verification of Page Elements', () => {
     .and('have.text', 'Hourly forecast')
     })
 })
+

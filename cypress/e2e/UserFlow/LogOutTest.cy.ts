@@ -15,7 +15,7 @@ describe('User LogOut', () => {
     cy.findByRole('button', { name: /submit/i }).click()
 
   // Redirecting to the homepage upon successful login
-    cy.url('').should('include', '/home')
+    cy.url().should('include', '/home')
   })
 
   it('LogOut test', () => {

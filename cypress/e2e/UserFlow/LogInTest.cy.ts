@@ -20,7 +20,7 @@ describe('User Login', () => {
     cy.findByRole('button', { name: /submit/i }).click();
 
   // Redirecting to the homepage upon successful login
-    cy.url('').should('include', '/home')
+    cy.url().should('include', '/home')
 
   // Assert that the user profile icon is visible
   cy.findByAltText("Logo white").should('be.visible')
