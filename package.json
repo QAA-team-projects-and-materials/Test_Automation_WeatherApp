@@ -1,5 +1,10 @@
 {
   "devDependencies": {
-    "cypress": "^13.14.2"
+    "@testing-library/cypress": "^10.0.2",
+    "@types/cypress": "^0.1.6",
+    "@types/mocha": "^10.0.8",
+    "@types/node": "^22.5.5",
+    "cypress": "^13.14.2",
+    "typescript": "^5.6.2"
   }
 }
