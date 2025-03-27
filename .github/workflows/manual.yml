@@ -6,9 +6,9 @@ on:
   workflow_dispatch:
     inputs:
       name:
-        description: 'Person to greet'
+        description: 'Person to greet with a smile'
         default: 'World'
-        required: true
+        required: false
         type: string
 
 jobs:
@@ -19,7 +19,7 @@ jobs:
       - name: Send greeting
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            echo "Hello ${{ inputs.name }}"
+            echo "Hello ${{ inputs.name }} :)"
           else
             echo "Hello from push event!"
           fi
