@@ -1,5 +1,5 @@
 ---
-name: Manual + Push Workflow
+name: Edited Workflow
 
 on:
   push:
